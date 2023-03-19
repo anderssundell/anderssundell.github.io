@@ -420,19 +420,19 @@ function nextLevel() {
 // Event listener for mobile arrow keys
 // Add event listeners for virtual arrow keys
 document.getElementById("arrow-up").addEventListener("touchstart", () => {
-  movePlayer("up");
+  movePlayer(0, -1);
 });
 document.getElementById("arrow-left").addEventListener("touchstart", () => {
-  movePlayer("left");
+  movePlayer(-1, 0);
 });
 document.getElementById("arrow-down").addEventListener("touchstart", () => {
-  movePlayer("down");
+  movePlayer(0, 1);
 });
 document.getElementById("arrow-right").addEventListener("touchstart", () => {
-  movePlayer("right");
+  movePlayer(1, 0);
 });
 
-// Add event listeners to prevent default touch behavior on the virtual arrow keys
+ //Add event listeners to prevent default touch behavior on the virtual arrow keys
 const arrowKeys = document.querySelectorAll(".virtual-keys button");
 arrowKeys.forEach((key) => {
   key.addEventListener("touchstart", (event) => {

@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
   <link rel="stylesheet" href="style.css">
   <title>Puzzle Game</title>
 
@@ -14,17 +15,24 @@
     }
   </style>
 </head>
+
+
 <body>
   <div>
   <div id="game-container"></div>
+
+ <div class="virtual-keys">
+  <button id="arrow-left"><i class="arrow-icon left"></i></button>
+  <button id="arrow-up"><i class="arrow-icon up"></i></button>
+  <button id="arrow-down"><i class="arrow-icon down"></i></button>
+  <button id="arrow-right"><i class="arrow-icon right"></i></button>
+</div>
+
   <div id="game-info"> </div>
-  <div id="button-container"><button id="reload-level">Reload Level</button></div>
-    <div class="virtual-keys">
-    <button id="arrow-up">⬆️</button>
-    <button id="arrow-left">⬅️</button>
-    <button id="arrow-down">⬇️</button>
-    <button id="arrow-right">➡️</button>
-  </div>
+
+
+
+<div id="button-container"><button id="reload-level">Reload Level</button></div>
   <div id="game-header"><p>Use arrow keys to move yellow squares<br>and collect all green squares</p></div>
 </div>
   <script src="game.js"></script>

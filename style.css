@@ -11,11 +11,33 @@ body {
   display: grid;
   grid-template-columns: repeat(10, 40px);
   grid-template-rows: repeat(10, 40px);
-  gap: 1px;
+  gap: 0px;
   background-color: #ffffff;
   width:  100%;
   text-align: center;
+  justify-content: center;
 }
+
+@media screen and (max-width:420px) {
+  #game-container {
+  display: grid;
+  grid-template-columns: repeat(10, 8%);
+  grid-template-rows: repeat(10, 8%);
+  gap: 0px;
+  background-color: #ffffff;
+  width:  100%;
+  text-align: center;
+  justify-content: center;
+}
+}
+
+@media screen and (max-width:420px) {
+.tile {
+  width: 8%;
+  height: 8%;
+}
+}
+
 
 #game-header {
   display: grid;
@@ -48,36 +70,82 @@ body {
 
 .empty {
   background-color: #f1f1f1;
+  border-color: #ffffff;
+  border-width: 1px;
+  border-style: solid;
 }
 
 .player {
   background-color: #fdc628;
+  border-color: #ffffff;
+  border-width: 1px;
+  border-style: solid;
 }
 
 .collectable {
   background-color: #1dad65; 
+  border-color: #ffffff;
+  border-width: 1px;
+  border-style: solid;
 }
 
 .obstacle {
   background-color: #888888;
+  border-color: #ffffff;
+  border-width: 1px;
+  border-style: solid;
 }
 
 .collected {
   background-color: #8b0000;
+  border-color: #ffffff;
+  border-width: 1px;
+  border-style: solid;
 }
+  /* Add some styles for the virtual arrow keys */
+  .virtual-keys {
+    text-align: center;
+        display: none;
+        justify-content: center;
 
-.virtual-keys {
-      display: none;
-      position: absolute;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-    }
+  }
 
-    .virtual-keys button {
-      background: #ccc;
-      border: 1px solid #999;
-      border-radius: 50%;
-      padding: 10px;
-      margin: 10px;
-    }
+  .virtual-keys button {
+    background: #ccc;
+    border: 1px solid #999;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: le;
+    align-items: center;
+    margin: 10px;
+    display: inline-block;
+  }
+
+  .virtual-keys .arrow-icon {
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+  }
+
+  .right {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+  }
+
+  .up {
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+  }
+
+  .down {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+  }
+
+  .left {
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+  }
