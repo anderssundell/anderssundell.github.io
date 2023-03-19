@@ -192,13 +192,26 @@ const level14 = [
   [0, 0, 0, 0, 0, 0, 0, 3, 0, 0]
 ];
 
+const level15 = [
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 2, 0, 2, 0, 2, 0, 2, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 2, 0, 2, 0, 2, 0, 2, 0],
+  [0, 0, 0, 3, 0, 3, 0, 3, 0, 0],
+  [0, 0, 2, 0, 2, 0, 2, 0, 2, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+];
+
 // Add a variable to keep track of the current level
 let currentLevel = 0;
 
 // Create an array of levels
 const levels = [level1, level2, level3, level4, level5, level6,
                 level7, level8, level9, level10, level11, level12,
-                level13, level14];
+                level13, level14, level15];
 
 
 // Helper function to create a tile element
@@ -266,6 +279,7 @@ function loadLevel(level) {
 
   renderPlayingField();
   howMany();
+        moveCount = 0;
   updateGameInfo(); // Update the game info
 
 }
@@ -402,5 +416,28 @@ function nextLevel() {
     loadLevel(levels[currentLevel]);
   }
 }
+
+// Event listener for mobile arrow keys
+// Add event listeners for virtual arrow keys
+document.getElementById("arrow-up").addEventListener("touchstart", () => {
+  movePlayer("up");
+});
+document.getElementById("arrow-left").addEventListener("touchstart", () => {
+  movePlayer("left");
+});
+document.getElementById("arrow-down").addEventListener("touchstart", () => {
+  movePlayer("down");
+});
+document.getElementById("arrow-right").addEventListener("touchstart", () => {
+  movePlayer("right");
+});
+
+// Add event listeners to prevent default touch behavior on the virtual arrow keys
+const arrowKeys = document.querySelectorAll(".virtual-keys button");
+arrowKeys.forEach((key) => {
+  key.addEventListener("touchstart", (event) => {
+    event.preventDefault();
+  });
+});
 
 loadLevel(levels[currentLevel]);
