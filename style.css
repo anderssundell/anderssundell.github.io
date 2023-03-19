@@ -18,26 +18,6 @@ body {
   justify-content: center;
 }
 
-@media screen and (max-width:420px) {
-  #game-container {
-  display: grid;
-  grid-template-columns: repeat(10, 8%);
-  grid-template-rows: repeat(10, 8%);
-  gap: 0px;
-  background-color: #ffffff;
-  width:  100%;
-  text-align: center;
-  justify-content: center;
-}
-}
-
-@media screen and (max-width:420px) {
-.tile {
-  width: 8%;
-  height: 8%;
-}
-}
-
 
 #game-header {
   display: grid;
@@ -149,3 +129,23 @@ body {
     transform: rotate(135deg);
     -webkit-transform: rotate(135deg);
   }
+
+  
+@media screen and (max-width:420px) {
+  #game-container {
+  display: grid;
+  grid-template-columns: repeat(10, minmax(30px, 30px));
+  grid-template-rows: repeat(10, minmax(30px, 30px));
+  gap: 0px;
+  background-color: #ffffff;
+  width:  100%;
+  text-align: center;
+  justify-content: center;
+}
+
+.tile {
+  width: 30px;
+  height: 30px;
+}
+}
+
