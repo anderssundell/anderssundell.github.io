@@ -14,13 +14,30 @@ body {
   gap: 1px;
   background-color: #ffffff;
   width:  100%;
+  text-align: center;
+}
+
+#game-header {
+  display: grid;
+    font-family: Helvetica, sans-serif;
+    font-size: 11px;
+    color: #888888;
+  background-color: #ffffff;
+  width:  100%;
+  text-align: center;
 }
 
 #game-info {
   display: grid;
     font-family: Helvetica, sans-serif;
+    font-size: 14px;
   background-color: #ffffff;
   width:  100%;
+  text-align: center;
+}
+
+
+#button-container {
   text-align: center;
 }
 

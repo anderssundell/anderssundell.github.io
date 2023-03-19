@@ -196,7 +196,9 @@ const level14 = [
 let currentLevel = 0;
 
 // Create an array of levels
-const levels = [level14, level2, level3, level4, level5, level6];
+const levels = [level1, level2, level3, level4, level5, level6,
+                level7, level8, level9, level10, level11, level12,
+                level13, level14];
 
 
 // Helper function to create a tile element
@@ -381,6 +383,11 @@ document.addEventListener("keydown", (event) => {
   } else if (event.key === "ArrowRight") {
     movePlayer(1, 0);
   }
+});
+
+// Event listener for reload button
+document.getElementById("reload-level").addEventListener("click", () => {
+  loadLevel(levels[currentLevel]);
 });
 
 function nextLevel() {
