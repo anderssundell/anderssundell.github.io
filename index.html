@@ -3,7 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Poppins">
+
   <link rel="stylesheet" href="style.css">
   <title>Puzzle Game</title>
 
@@ -19,6 +22,7 @@
 
 <body>
   <div>
+    <div id = "logo-text" style = "font-family: 'Poppins'">Ma<div id = logo-text-yellow>g</div>n<div id = logo-text-green>g</div>et</div>
   <div id="game-container"></div>
 
  <div class="virtual-keys">
@@ -28,11 +32,34 @@
   <button id="arrow-right"><i class="arrow-icon right"></i></button>
 </div>
 
-  <div id="game-info"> </div>
+  
+<div id="game-info"> </div>
 
 
 
-<div id="button-container"><button id="reload-level">Reload Level</button></div>
+<div id="button-container"><button id="reload-level">Reload Level</button>
+  <div id="explainer-text"> | Select level:</div>
+  <select id="level-select">
+  <option value="1">1</option>
+  <option value="2">2</option>
+  <option value="3">3</option>
+  <option value="4">4</option>
+  <option value="5">5</option>
+  <option value="6">6</option>
+  <option value="7">7</option>
+  <option value="8">8</option>
+  <option value="9">9</option>
+  <option value="10">10</option>
+  <option value="11">11</option>
+  <option value="12">12</option>
+  <option value="13">13</option>
+  <option value="14">14</option>
+  <option value="15">15</option>
+  <option value="16">16</option>
+  <option value="17">17</option>
+  <option value="18">18</option>
+  <option value="19">19</option>
+</select></div>
   <div id="game-header"><p>Use arrow keys to move yellow squares<br>and collect all green squares</p></div>
 </div>
   <script src="game.js"></script>

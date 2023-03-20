@@ -12,13 +12,13 @@ let remainingCollectables = 0;
 
 const level1 = [
   [1, 0, 0, 0, 2, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 4, 0, 0],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
   [3, 3, 3, 3, 0, 3, 3, 3, 3, 3],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 2, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 2, 0, 0, 4, 0, 0],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 ];
@@ -192,7 +192,6 @@ const level14 = [
   [0, 0, 0, 0, 0, 0, 0, 3, 0, 0]
 ];
 
-
 const level15 = [
   [1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -206,66 +205,13 @@ const level15 = [
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 ];
 
-const level16 = [
-  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 4, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 4, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [2, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-];
-
-
-const level17 = [
-  [1, 0, 0, 0, 3, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 3, 0, 0, 4, 0, 0],
-  [0, 0, 0, 2, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 3, 0, 0, 0, 0, 0],
-  [3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [3, 3, 0, 3, 0, 0, 0, 4, 0, 0],
-  [0, 0, 0, 3, 0, 0, 0, 0, 0, 0],
-  [2, 0, 0, 3, 0, 0, 0, 0, 0, 0]
-];
-
-const level18 = [
-  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 2, 0, 0, 0, 4, 0, 0, 0, 0],
-  [0, 0, 2, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 2, 0, 0, 0, 0, 0, 0],
-  [3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
-  [0, 0, 3, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 3, 0, 0, 0, 0, 0, 0, 0],
-  [2, 0, 3, 0, 0, 0, 0, 4, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 3, 0, 0, 0, 0, 0, 0, 0]
-];
-
-const level19 = [
-  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 2, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 4, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 4, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [3, 3, 0, 0, 0, 0, 0, 0, 3, 3],
-  [2, 2, 2, 3, 0, 0, 3, 2, 2, 2]
-];
-
 // Add a variable to keep track of the current level
 let currentLevel = 0;
 
 // Create an array of levels
 const levels = [level1, level2, level3, level4, level5, level6,
                 level7, level8, level9, level10, level11, level12,
-                level13, level14, level15, level16, level17, level18, level19];
+                level13, level14, level15];
 
 
 // Helper function to create a tile element
@@ -282,7 +228,7 @@ function createTileElement(type) {
   } else if (type === 3) {
     tile.classList.add("obstacle");
   } else if (type === 4) {
-    tile.classList.add("teleport_origin");
+    tile.classList.add("collected");
   }
   return tile;
 }
@@ -339,17 +285,6 @@ function loadLevel(level) {
 }
 
 
-// Teleportation tiles
-function findDestinationTeleportTile(level, currentTeleport) {
-  for (let y = 0; y < level.length; y++) {
-    for (let x = 0; x < level[y].length; x++) {
-      if (level[y][x] === 4 && (y !== currentTeleport.y || x !== currentTeleport.x)) {
-        return { x, y };
-      }
-    }
-  }
-  return null;
-}
 
 
 
@@ -378,33 +313,6 @@ function movePlayer(dx, dy) {
     }
   }
 
-
-  // Handle teleportation old version
-  //const head = newPlayerObject[0];
-  //if (playingField[head.y][head.x] === 4) {
-  //  const currentTeleport = { x: head.x, y: head.y };
-  //  const destinationTeleport = findDestinationTeleportTile(playingField, currentTeleport);
-//
-  //  if (destinationTeleport) {
-  //    head.x = destinationTeleport.x + dx;
-  //    head.y = destinationTeleport.y + dy;
-  //    newPlayerObject[0] = head;
-  //  }
-  //}
-
-// Handle teleportation for each player object
-  newPlayerObject.forEach((player, index) => {
-    if (playingField[player.y][player.x] === 4) {
-      const currentTeleport = { x: player.x, y: player.y };
-      const destinationTeleport = findDestinationTeleportTile(playingField, currentTeleport);
-
-      if (destinationTeleport) {
-        player.x = destinationTeleport.x+dx;
-        player.y = destinationTeleport.y+dy;
-        newPlayerObject[index] = player;
-      }
-    }
-  });
 
 
   // Move the player object
@@ -530,12 +438,6 @@ arrowKeys.forEach((key) => {
   key.addEventListener("touchstart", (event) => {
     event.preventDefault();
   });
-});
-
-document.getElementById('level-select').addEventListener('change', function (event) {
-  const selectedLevel = parseInt(event.target.value, 10);
-  currentLevel = selectedLevel - 1;
-  loadLevel(levels[selectedLevel - 1]);
 });
 
 loadLevel(levels[currentLevel]);

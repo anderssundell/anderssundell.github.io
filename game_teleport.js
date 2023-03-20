@@ -11,14 +11,14 @@ let moveCount = 0;
 let remainingCollectables = 0;
 
 const level1 = [
-  [1, 0, 0, 0, 2, 0, 0, 0, 0, 0],
+  [1, 0, 0, 0, 2, 0, 0, 4, 0, 0],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
   [3, 3, 3, 3, 0, 3, 3, 3, 3, 3],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 2, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 2, 0, 0, 4, 0, 0],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 ];
@@ -192,7 +192,6 @@ const level14 = [
   [0, 0, 0, 0, 0, 0, 0, 3, 0, 0]
 ];
 
-
 const level15 = [
   [1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -206,66 +205,13 @@ const level15 = [
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 ];
 
-const level16 = [
-  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 4, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 4, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [2, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-];
-
-
-const level17 = [
-  [1, 0, 0, 0, 3, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 3, 0, 0, 4, 0, 0],
-  [0, 0, 0, 2, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 3, 0, 0, 0, 0, 0],
-  [3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [3, 3, 0, 3, 0, 0, 0, 4, 0, 0],
-  [0, 0, 0, 3, 0, 0, 0, 0, 0, 0],
-  [2, 0, 0, 3, 0, 0, 0, 0, 0, 0]
-];
-
-const level18 = [
-  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 2, 0, 0, 0, 4, 0, 0, 0, 0],
-  [0, 0, 2, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 2, 0, 0, 0, 0, 0, 0],
-  [3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
-  [0, 0, 3, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 3, 0, 0, 0, 0, 0, 0, 0],
-  [2, 0, 3, 0, 0, 0, 0, 4, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 3, 0, 0, 0, 0, 0, 0, 0]
-];
-
-const level19 = [
-  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 2, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 4, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 4, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [3, 3, 0, 0, 0, 0, 0, 0, 3, 3],
-  [2, 2, 2, 3, 0, 0, 3, 2, 2, 2]
-];
-
 // Add a variable to keep track of the current level
 let currentLevel = 0;
 
 // Create an array of levels
 const levels = [level1, level2, level3, level4, level5, level6,
                 level7, level8, level9, level10, level11, level12,
-                level13, level14, level15, level16, level17, level18, level19];
+                level13, level14, level15];
 
 
 // Helper function to create a tile element
@@ -283,6 +229,8 @@ function createTileElement(type) {
     tile.classList.add("obstacle");
   } else if (type === 4) {
     tile.classList.add("teleport_origin");
+  } else if (type === 5) {
+    tile.classList.add("teleport_destination");
   }
   return tile;
 }
@@ -317,12 +265,14 @@ function howMany() {
 // Function to load a level
 function loadLevel(level) {
   playerObject = []; // Reset the playerObject array
+  playingField = level.map(row => row.slice()); // Create a copy of the level array
+  originalPlayingField = level.map(row => row.slice()); // Store the original playing field
 
 
 
   for (let y = 0; y < fieldHeight; y++) {
     for (let x = 0; x < fieldWidth; x++) {
-      playingField[y][x] = level[y][x];
+      //playingField[y][x] = level[y][x];
 
       // Update the playerObject array based on the level data
       if (level[y][x] === 1) {
@@ -337,6 +287,7 @@ function loadLevel(level) {
   updateGameInfo(); // Update the game info
 
 }
+
 
 
 // Teleportation tiles
@@ -378,42 +329,26 @@ function movePlayer(dx, dy) {
     }
   }
 
+  // Handle teleportation
+  const head = newPlayerObject[0];
+  if (playingField[head.y][head.x] === 4) {
+    const currentTeleport = { x: head.x, y: head.y };
+    const destinationTeleport = findDestinationTeleportTile(playingField, currentTeleport);
 
-  // Handle teleportation old version
-  //const head = newPlayerObject[0];
-  //if (playingField[head.y][head.x] === 4) {
-  //  const currentTeleport = { x: head.x, y: head.y };
-  //  const destinationTeleport = findDestinationTeleportTile(playingField, currentTeleport);
-//
-  //  if (destinationTeleport) {
-  //    head.x = destinationTeleport.x + dx;
-  //    head.y = destinationTeleport.y + dy;
-  //    newPlayerObject[0] = head;
-  //  }
-  //}
-
-// Handle teleportation for each player object
-  newPlayerObject.forEach((player, index) => {
-    if (playingField[player.y][player.x] === 4) {
-      const currentTeleport = { x: player.x, y: player.y };
-      const destinationTeleport = findDestinationTeleportTile(playingField, currentTeleport);
-
-      if (destinationTeleport) {
-        player.x = destinationTeleport.x+dx;
-        player.y = destinationTeleport.y+dy;
-        newPlayerObject[index] = player;
-      }
+    if (destinationTeleport) {
+      head.x = destinationTeleport.x + dx;
+      head.y = destinationTeleport.y + dy;
+      newPlayerObject[0] = head;
     }
-  });
-
+  }
 
   // Move the player object
   playerObject.forEach(({ x, y }) => {
     playingField[y][x] = 0;
   });
 
-
   playerObject = newPlayerObject;
+
 
 // Check for collectable pieces in neighboring squares
   const collectableOffsets = [
@@ -464,11 +399,9 @@ function movePlayer(dx, dy) {
 
   renderPlayingField();
   updateGameInfo();
-
-
-
-
 }
+
+
 
 function updateGameInfo() {
   const gameInfo = document.getElementById("game-info");
@@ -530,12 +463,6 @@ arrowKeys.forEach((key) => {
   key.addEventListener("touchstart", (event) => {
     event.preventDefault();
   });
-});
-
-document.getElementById('level-select').addEventListener('change', function (event) {
-  const selectedLevel = parseInt(event.target.value, 10);
-  currentLevel = selectedLevel - 1;
-  loadLevel(levels[selectedLevel - 1]);
 });
 
 loadLevel(levels[currentLevel]);

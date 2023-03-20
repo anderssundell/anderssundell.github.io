@@ -38,6 +38,31 @@ body {
   text-align: center;
 }
 
+#explainer-text {
+  display: inline-block;
+    font-family: Helvetica, sans-serif;
+    font-size: 14px;
+}
+
+#logo-text {
+  display: inline-block;
+    font-family: Helvetica, sans-serif;
+    font-size: 20px;
+    width:  100%;
+    text-align: right;
+    margin-bottom: 2px;
+}
+
+#logo-text-yellow {
+  display: inline-block;
+  color: #fdc628;
+}
+
+#logo-text-green {
+  display: inline-block;
+  color: #1dad65;
+}
+
 
 #button-container {
   text-align: center;
@@ -76,12 +101,21 @@ body {
   border-style: solid;
 }
 
-.collected {
-  background-color: #8b0000;
+.teleport_origin {
+  background-color: red;
   border-color: #ffffff;
   border-width: 1px;
   border-style: solid;
 }
+
+.teleport_destination {
+  background-color: blue;
+  border-color: #ffffff;
+  border-width: 1px;
+  border-style: solid;
+}
+
+
   /* Add some styles for the virtual arrow keys */
   .virtual-keys {
     text-align: center;
@@ -130,7 +164,7 @@ body {
     -webkit-transform: rotate(135deg);
   }
 
-  
+
 @media screen and (max-width:420px) {
   #game-container {
   display: grid;
