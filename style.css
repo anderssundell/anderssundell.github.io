@@ -73,6 +73,11 @@ body {
   height: 40px;
 }
 
+a {
+  color: #888888;
+  text-decoration: none; /* no underline */
+}
+
 .empty {
   background-color: #f1f1f1;
   border-color: #ffffff;
