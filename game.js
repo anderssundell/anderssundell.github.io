@@ -259,13 +259,96 @@ const level19 = [
   [2, 2, 2, 3, 0, 0, 3, 2, 2, 2]
 ];
 
+const level20 = [
+  [0, 1, 0, 0, 2, 0, 0, 0, 1, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 3, 3, 3, 3, 3, 3, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 4, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 4, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 2, 0, 0, 0, 0, 0]
+];
+
+const level21 = [
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
+  [0, 2, 0, 0, 2, 2, 0, 0, 2, 0 ],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
+  [0, 2, 0, 0, 3, 3, 0, 0, 2, 0 ],
+  [0, 2, 0, 0, 3, 3, 0, 0, 2, 0 ],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
+  [0, 2, 0, 0, 2, 2, 0, 0, 2, 0 ],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+];
+
+const level22 = [
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0], 
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 
+  [0, 0, 0, 0, 2, 2, 0, 0, 0, 0], 
+  [0, 0, 0, 0, 0, 0, 3, 0, 0, 2], 
+  [0, 3, 3, 3, 0, 0, 3, 0, 0, 0], 
+  [0, 0, 0, 3, 0, 0, 3, 3, 3, 0], 
+  [2, 0, 0, 3, 0, 0, 0, 0, 0, 0], 
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 
+  [0, 0, 0, 0, 2, 2, 0, 0, 0, 0], 
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+];
+
+const level23 = [
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0], 
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 
+  [0, 3, 0, 0, 3, 0, 0, 3, 0, 0], 
+  [0, 0, 2, 0, 0, 0, 2, 0, 0, 0], 
+  [0, 3, 0, 3, 0, 3, 0, 3, 0, 0], 
+  [0, 3, 0, 3, 2, 3, 0, 3, 0, 0], 
+  [0, 3, 2, 3, 0, 3, 2, 3, 0, 0], 
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+];
+
+const level24 = [
+  [1, 0, 0, 0, 2, 0, 0, 0, 0, 0], 
+  [3, 3, 3, 0, 0, 0, 0, 0, 3, 3], 
+  [3, 2, 3, 0, 0, 0, 0, 0, 3, 0], 
+  [3, 0, 3, 2, 0, 0, 0, 0, 3, 4], 
+  [3, 4, 3, 0, 0, 0, 0, 0, 3, 0], 
+  [3, 3, 3, 0, 0, 0, 0, 0, 3, 0], 
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 
+  [0, 2, 0, 0, 0, 0, 0, 2, 0, 0], 
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+]
+
+
+const level25 = [
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0], 
+  [0, 0, 2, 0, 2, 0, 2, 0, 2, 0], 
+  [0, 2, 0, 2, 0, 2, 0, 4, 0, 0], 
+  [0, 0, 2, 0, 2, 0, 2, 0, 2, 0], 
+  [0, 2, 0, 2, 0, 2, 3, 2, 0, 0], 
+  [0, 0, 2, 0, 2, 0, 2, 0, 2, 0], 
+  [0, 2, 0, 2, 3, 2, 0, 2, 0, 0], 
+  [0, 0, 4, 0, 2, 0, 2, 0, 2, 0], 
+  [0, 2, 0, 2, 0, 2, 0, 2, 0, 0], 
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+]
+
+
+
+
 // Add a variable to keep track of the current level
 let currentLevel = 0;
 
 // Create an array of levels
 const levels = [level1, level2, level3, level4, level5, level6,
                 level7, level8, level9, level10, level11, level12,
-                level13, level14, level15, level16, level17, level18, level19];
+                level13, level14, level15, level16, level17, level18, level19,
+                level20, level21, level22, level23, level24, level25];
 
 
 // Helper function to create a tile element
@@ -473,7 +556,7 @@ function movePlayer(dx, dy) {
 function updateGameInfo() {
   const gameInfo = document.getElementById("game-info");
   gameInfo.innerHTML = `
-    <p>Level: ${currentLevel+1} | Moves: ${moveCount} | Remaining: ${remainingCollectables}</p>
+    <p>Level ${currentLevel+1} | Moves: ${moveCount}</p>
   `;
 }
 
@@ -532,10 +615,28 @@ arrowKeys.forEach((key) => {
   });
 });
 
+document.addEventListener('DOMContentLoaded', () => {
+      const dropdown = document.getElementById('level-select');
+    const start = 1;
+    const end = 25;
+
+    for (let i = start; i <= end; i++) {
+        const option = document.createElement('option');
+        option.value = i;
+        option.textContent = i;
+        dropdown.appendChild(option);
+    }
+});
+
+
 document.getElementById('level-select').addEventListener('change', function (event) {
-  const selectedLevel = parseInt(event.target.value, 10);
+  //const selectedLevel = parseInt(event.target.value, 10);
+  const selectedLevel = event.target.value;
   currentLevel = selectedLevel - 1;
   loadLevel(levels[selectedLevel - 1]);
 });
+
+
+
 
 loadLevel(levels[currentLevel]);
