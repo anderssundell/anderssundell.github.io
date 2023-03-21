@@ -339,8 +339,6 @@ const level25 = [
 ]
 
 
-
-
 // Add a variable to keep track of the current level
 let currentLevel = 0;
 
