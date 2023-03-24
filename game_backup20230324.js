@@ -3,26 +3,8 @@ const fieldHeight = 10;
 const gameContainer = document.getElementById("game-container");
 const playingField = new Array(fieldHeight).fill(null).map(() => new Array(fieldWidth).fill(0));
 
-function getLevelOfTheDay() {
-  const today = new Date();
-  const start = new Date("2023-03-25 00:00:01"); // Set the start date when you launched the game
-  const diff = Math.floor((today - start) / (24 * 60 * 60 * 1000));
-  return diff+1
-}
-
-
-function getDateByIndex(index) {
-  const today = new Date();
-  const date = new Date(today.setDate(today.getDate() - index));
-  return date.toLocaleDateString();
-}
-
-let levelKey = ""
-
-const firstFiveItems = window.originallevels.slice(0, getLevelOfTheDay()); // Select the first X items
-window.levels = firstFiveItems.reverse(); // Reverse the order of the selected items
-
-let currentLevelSet = "levels"; // Default to the "levels" set 
+let currentLevel = 0;
+let currentLevelSet = "levels"; // Default to the "levels" set
 
 let playerObject = [
   { x: 0, y: 0, type: 1 }
@@ -31,10 +13,57 @@ let playerObject = [
 let moveCount = 0;
 let remainingCollectables = 0;
 
-let currentLevel = 0;
+
+
+
+//function getDailyLevelIndex() {
+//  const currentDate = new Date();
+//  const startOfYear = new Date(currentDate.getFullYear(), 0, 1);
+//  const daysSinceStartOfYear = Math.floor((currentDate - startOfYear) / (1000 * 60 * 60 * 24));
+//  //return daysSinceStartOfYear % levels.length;
+//  return 1;
+//}
+//
+//let currentLevel = [];
+//
+//function loadDailyLevel() {
+//  const dailyLevelIndex = getDailyLevelIndex();
+//  const dailyLevel = levels[dailyLevelIndex];
+//  currentLevel = dailyLevelIndex;
+//  loadLevel(dailyLevel);
+//
+//  //updateArchive(dailyLevelIndex);
+//}
+
+//function updateArchive(dailyLevelIndex) {
+//  const archiveElement = document.getElementById('archive');
+//  archiveElement.innerHTML = '';
+//
+//  for (let i = 0; i < dailyLevelIndex; i++) {
+//    const levelButton = document.createElement('button');
+//    levelButton.textContent = `Level ${i + 1}`;
+//    levelButton.addEventListener('click', () => {
+//      loadLevel(levels[i]);
+//    });
+//
+//    archiveElement.appendChild(levelButton);
+//  }
+//}
+
+
+
 
 // Add a variable to keep track of the current level
 let antiPlayerObjects = [];
+
+//const levels = [tutorials8, tutorials2];
+
+// Create an array of levels
+//const levels = [tutorials10, level2, level3, level4, level5, level6,
+//                level7, level8, level9, level10, level11, level12,
+//                level13, level14, level15, level16, level17, level18, level19,
+//                level20, level21, level22, level23, level24, level25,
+//                level26, level27, level28, level29, level30];
 
 
 // Helper function to create a tile element
@@ -124,31 +153,6 @@ function loadLevel(level) {
   howMany();
         moveCount = 0;
   updateGameInfo(); // Update the game info
-
-  // Draw star
-levelKey = currentLevelSet + "-" + getDateByIndex(currentLevel);
-
-if (currentLevelSet === "tutorials" ) {
-   levelKey = currentLevelSet + "-" + currentLevel;
-  
-  }
-
-    const cleared = JSON.parse(localStorage.getItem(levelKey)) || false;
-
-  // Create a separate canvas for the star
-  const starContainer = document.getElementById("star-container");
-  starContainer.innerHTML = ""; // Clear the previous star, if any
-  const starCanvas = document.createElement("canvas");
-  starCanvas.width = 20; // Set an appropriate width for the star canvas
-  starCanvas.height = 20; // Set an appropriate height for the star canvas
-  starContainer.appendChild(starCanvas);
-  const starCtx = starCanvas.getContext("2d");
-
-  // Draw the star
-  const starX = starCanvas.width / 2;
-  const starY = starCanvas.height / 2;
-  const starRadius = 10;
-  drawStar(starCtx, starX, starY, starRadius, cleared);
 
 }
 
@@ -334,18 +338,14 @@ if (playingField[antiPlayer.y][antiPlayer.x] === 1 ) {
 }
 
 function updateGameInfo() {
-let levelheader = "";
-let levelnumber = getDateByIndex(currentLevel); //The getbydateindex takes the number of days before today
-
+let levelheader = "Level";
 if (currentLevelSet === "tutorials" ) {
 levelheader = "Tutorial";
-levelnumber = currentLevel + 1;
 }
 
-
-
   const gameInfo = document.getElementById("game-info");
-  gameInfo.innerHTML = `<span> ${levelheader} ${levelnumber} | Moves: ${moveCount}</span>
+  gameInfo.innerHTML = `
+    <p>${levelheader} ${currentLevel+1} | Moves: ${moveCount}</p>
   `;
 }
 
@@ -370,21 +370,13 @@ document.getElementById("reload-level").addEventListener("click", () => {
 });
 
 function nextLevel() {
-levelKey = currentLevelSet + "-" + getDateByIndex(currentLevel);
-
-if (currentLevelSet === "tutorials" ) {
-   levelKey = currentLevelSet + "-" + currentLevel;
-  
-  }
-
-  localStorage.setItem(levelKey, "true");
-
   currentLevel++;
-  if (currentLevel < window[currentLevelSet].length) {
+  if (currentLevel < levels.length) {
     moveCount = 0;
     loadLevel(window[currentLevelSet][currentLevel]);
   } else {
     // All levels are completed, you can show a message or restart the game.
+    alert("Congratulations! You've completed all levels.");
     currentLevel = 0;
     loadLevel(window[currentLevelSet][currentLevel]);
   }
@@ -416,7 +408,7 @@ arrowKeys.forEach((key) => {
 document.addEventListener('DOMContentLoaded', () => {
       const dropdown = document.getElementById('level-select');
     const start = 1;
-    const end = getLevelOfTheDay();
+    const end = 21;
 
     const dropdown_t = document.getElementById('level-select-tutorial');
     const start_t = 1;
@@ -425,7 +417,7 @@ document.addEventListener('DOMContentLoaded', () => {
     for (let i = start; i <= end; i++) {
         const option = document.createElement('option');
         option.value = i;
-        option.textContent = getDateByIndex(i-1);
+        option.textContent = i;
         dropdown.appendChild(option);
         }
 
@@ -455,35 +447,4 @@ document.getElementById('level-select-tutorial').addEventListener('change', func
 
 //loadDailyLevel();
 
-
-function drawStar(ctx, x, y, radius, isSolid) {
-  const starPoints = 5;
-  const outerRadius = radius;
-  const innerRadius = radius / 2;
-
-  ctx.beginPath();
-  ctx.moveTo(x, y - outerRadius);
-  for (let i = 1; i < starPoints * 2; i++) {
-    const angle = (Math.PI * i) / starPoints;
-    const radius = i % 2 === 0 ? outerRadius : innerRadius;
-    const newX = x + Math.sin(angle) * radius;
-    const newY = y - Math.cos(angle) * radius;
-    ctx.lineTo(newX, newY);
-  }
-  ctx.closePath();
-
-  if (isSolid) {
-    ctx.fillStyle = "#FFD700";
-    ctx.fill();
-  } else {
-    ctx.strokeStyle = "#FFD700";
-    ctx.stroke();
-  }
-}
-
-
-loadLevel(window.levels[currentLevel]);
-
-
-
-
+loadLevel(levels[0]);

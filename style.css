@@ -30,12 +30,24 @@ body {
 }
 
 #game-info {
-  display: grid;
+  display: inline-block;
     font-family: Helvetica, sans-serif;
     font-size: 14px;
   background-color: #ffffff;
+  text-align: center;
+  vertical-align: 5px;
+  padding-left: 5px;
+}
+
+.star-container {
+  display:  flex;
+}
+
+#double-container {
   width:  100%;
   text-align: center;
+  margin-top: 5px;
+  margin-bottom: 10px;
 }
 
 #explainer-text {
@@ -107,7 +119,14 @@ a {
 }
 
 .teleport_origin {
-  background-color: red;
+  background-color: #00cde8;
+  border-color: #ffffff;
+  border-width: 1px;
+  border-style: solid;
+}
+
+.antiplayer {
+  background-color: black;
   border-color: #ffffff;
   border-width: 1px;
   border-style: solid;
