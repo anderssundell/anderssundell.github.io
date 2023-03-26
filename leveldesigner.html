@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-LT0MZJ2T8M"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-LT0MZJ2T8M');
+</script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Browser puzzle game where you try to collect all green magnets without getting stuck.">
+<meta name="keywords" content="Browser game, game, puzzle game, magnets, magnget, logic, brain game, yellow magnets, green magnets, challenging game, IQ game">   
+    
+    
+
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Poppins">
+
+  <link rel="stylesheet" href="style.css">
+  <title>magnget</title>
+
+  <style>
+      @media (pointer: coarse) {
+      .virtual-keys {
+        display: flex;
+      }
+    }
+  </style>
+</head>
+
+
+<body>
+  <div>
+    <div id = "logo-text" style = "font-family: 'Poppins'"><div id = logo-text-yellow>magn</div><div id = logo-text-green>get</div></div>
+  <div id="game-container"></div>
+
+ <div class="virtual-keys">
+  <button id="arrow-left"><i class="arrow-icon left"></i></button>
+  <button id="arrow-up"><i class="arrow-icon up"></i></button>
+  <button id="arrow-down"><i class="arrow-icon down"></i></button>
+  <button id="arrow-right"><i class="arrow-icon right"></i></button>
+</div>
+
+<div id = "double-container"><span id="star-container"></span><span id="game-info"></span></div>
+
+
+
+<div id="button-container"><button id="reload-level">Reload Level</button><br><br>
+  <div id="explainer-text">Archive: <select id="level-select"></select>
+
+  Tutorials:</div>
+      <select id="level-select-tutorial"></select>
+</div>
+  <div id="game-header"><p>Use arrow keys to move yellow magnet<br>and collect all green magnets.<br> New level every day.
+    <a href="https://twitter.com/sundellviz">@sundellviz</a></p></div>
+</div>
+  <script src="tutorials.js"></script>
+  <script src="levels_tester.js"></script>
+  <script src="game_tester.js"></script>
+</body>
+</html>

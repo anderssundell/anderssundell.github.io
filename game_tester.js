@@ -5,10 +5,11 @@ const playingField = new Array(fieldHeight).fill(null).map(() => new Array(field
 
 function getLevelOfTheDay() {
   const today = new Date();
-  const start = new Date("2023-03-24 23:00:01"); // Set the start date when you launched the game
+  const start = new Date("2023-03-25 00:00:01"); // Set the start date when you launched the game
   const diff = Math.floor((today - start) / (24 * 60 * 60 * 1000));
   return diff+1
 }
+
 
 function getDateByIndex(index) {
   const today = new Date();
@@ -16,12 +17,11 @@ function getDateByIndex(index) {
   return date.toLocaleDateString();
 }
 
-
-
 let levelKey = ""
 
-const firstFiveItems = window.originallevels.slice(0, getLevelOfTheDay()); // Select the first X items
-window.levels = firstFiveItems.reverse(); // Reverse the order of the selected items
+//const firstFiveItems = window.originallevels.slice(0, getLevelOfTheDay()); // Select the first X items
+//window.levels = firstFiveItems.reverse(); // Reverse the order of the selected items
+window.levels = window.originallevels
 
 let currentLevelSet = "levels"; // Default to the "levels" set 
 
@@ -167,14 +167,22 @@ function findDestinationTeleportTile(level, currentTeleport) {
 }
 
 
+
+// Function to find the player position
+//function findPlayerPosition() {
+//  return playerObject[0];
+//}
+
 // Function to handle player movement
 function movePlayer(dx, dy) {
   const newPlayerObject = playerObject.map(({ x, y, type }) => ({ x: x + dx, y: y + dy, type }));
+  const newantiPlayerObject = antiPlayerObjects.map(({ x, y, type }) => ({ x: x - dx, y: y + dy, type }));
+
 
   moveCount++;
 
 
-
+/// PLAYER OBJECTS
   // Check for collisions with walls, obstacles, or itself
   for (const newPos of newPlayerObject) {
     const { x, y } = newPos;
@@ -186,34 +194,7 @@ function movePlayer(dx, dy) {
     }
   }
 
-
-
-
-     // Move the anti-player objects
-  for (const antiPlayer of antiPlayerObjects) {
-    const newX = antiPlayer.x - dx;
-    const newY = antiPlayer.y + dy;
-
-    // Check for collisions with walls or obstacles, and only move the anti-player object if there's no collision
-    if (
-      newX >= 0 && newX < fieldWidth &&
-      newY >= 0 && newY < fieldHeight &&
-      playingField[newY][newX] !== 3 &&
-      playingField[newY][newX] !== 4 &&
-      playingField[newY][newX] !== 9 &&
-      playingField[newY][newX] !== 2 // Obstacle
-    ) {
-      playingField[antiPlayer.y][antiPlayer.x] = 0; // Clear the previous position
-      playingField[newY][newX] = 9; // Set the new position
-      antiPlayer.x = newX;
-      antiPlayer.y = newY;
-    }
-
-  }
-
-
-
-// Handle teleportation for each player object
+  // Handle teleportation for each player object
   newPlayerObject.forEach((player, index) => {
     if (playingField[player.y][player.x] === 4) {
       const currentTeleport = { x: player.x, y: player.y };
@@ -227,15 +208,91 @@ function movePlayer(dx, dy) {
     }
   });
 
-
   // Move the player object
   playerObject.forEach(({ x, y }) => {
     playingField[y][x] = 0;
   });
 
-
-
   playerObject = newPlayerObject;
+
+
+//// ANTIPLAYER OBJECTS
+  // Check for collisions with walls, obstacles, or itself
+
+  //for (const newPos of newantiPlayerObject) {
+  newantiPlayerObject.forEach(({player, index}) => {
+    //if (
+    // antiplayer.x >= 0 && antiplayer.x < fieldWidth &&
+    // antiplayer.y >= 0 && antiplayer.y < fieldHeight &&
+    // playingField[antiplayer.y][antiplayer.x] !== 3 &&
+    // playingField[antiplayer.y][antiplayer.x] !== 9 &&
+    // playingField[antiplayer.y][antiplayer.x] !== 4 &&
+    // playingField[antiplayer.y][antiplayer.x] !== 2 // Obstacle
+    //) {
+    //  //playingField[antiPlayer.y][antiPlayer.x] = 0;
+    //  playingField[antiplayer.y][antiplayer.x] = 9;
+    //  //playingField[y][x] = 0;
+//
+    //}
+  }
+
+  //antiPlayerObjects.forEach(({ x, y }) => {
+  //  playingField[y][x] = 0;
+  //});
+
+      antiPlayerObjects = newantiPlayerObject;
+
+
+  // Handle teleportation for each antiplayer object
+  newantiPlayerObject.forEach((antiplayer, index) => {
+    if (playingField[antiplayer.y][antiplayer.x] === 4) {
+      const currentTeleport = { x: antiplayer.x, y: antiplayer.y };
+      const destinationTeleport = findDestinationTeleportTile(playingField, currentTeleport);
+
+      if (destinationTeleport) {
+        antiplayer.x = destinationTeleport.x-dx;
+        antiplayer.y = destinationTeleport.y+dy;
+        newantiPlayerObject[index] = antiplayer;
+      }
+
+      playingField[antiplayer.y][antiplayer.x] = 9;
+
+  antiPlayerObjects.forEach(({ x, y }) => {
+    playingField[y][x] = 0;
+  });
+    antiPlayerObjects = newantiPlayerObject;
+
+
+    }
+  });
+
+
+
+//// Handle teleportation for each antiplayer object
+//  newantiPlayerObject.forEach((antiplayer, index) => {
+//    if (playingField[antiplayer.y][antiplayer.x] === 4) {
+//      const currentTeleport = { x: antiplayer.x, y: antiplayer.y };
+//      const destinationTeleport = findDestinationTeleportTile(playingField, currentTeleport);
+//
+//      if (destinationTeleport) {
+//        antiplayer.x = destinationTeleport.x-dx;
+//        antiplayer.y = destinationTeleport.y+dy;
+//        newantiPlayerObject[index] = antiplayer;
+//      }
+//
+//      antiPlayerObjects = newantiPlayerObject;
+//
+//    }
+//  });
+
+
+
+
+
+
+
+
+
 
 
 // Check for collectable pieces in neighboring squares

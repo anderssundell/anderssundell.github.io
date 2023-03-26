@@ -5,18 +5,17 @@ const playingField = new Array(fieldHeight).fill(null).map(() => new Array(field
 
 function getLevelOfTheDay() {
   const today = new Date();
-  const start = new Date("2023-03-24 23:00:01"); // Set the start date when you launched the game
+  const start = new Date("2023-03-25 00:00:01"); // Set the start date when you launched the game
   const diff = Math.floor((today - start) / (24 * 60 * 60 * 1000));
   return diff+1
 }
+
 
 function getDateByIndex(index) {
   const today = new Date();
   const date = new Date(today.setDate(today.getDate() - index));
   return date.toLocaleDateString();
 }
-
-
 
 let levelKey = ""
 
