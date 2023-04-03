@@ -36,8 +36,6 @@ let currentLevel = 0;
 
 // Add a variable to keep track of the current level
 let antiPlayerObjects = [];
-let vantiPlayerObjects = [];
-
 
 
 // Helper function to create a tile element
@@ -55,8 +53,6 @@ function createTileElement(type) {
     tile.classList.add("obstacle");
   } else if (type === 4) {
     tile.classList.add("teleport_origin");
-  } else if (type === 8) {
-    tile.classList.add("vantiplayer");
   } else if (type === 9) {
     tile.classList.add("antiplayer");
   }
@@ -111,16 +107,6 @@ function loadLevel(level) {
       }
     }
   }
-
-   vantiPlayerObjects = [];
-  for (let y = 0; y < fieldHeight; y++) {
-    for (let x = 0; x < fieldWidth; x++) {
-      if (level[y][x] === 8) {
-        vantiPlayerObjects.push({ x, y, type: 8});
-      }
-    }
-  }
-
 
 
 
@@ -214,7 +200,6 @@ function movePlayer(dx, dy) {
       newY >= 0 && newY < fieldHeight &&
       playingField[newY][newX] !== 3 &&
       playingField[newY][newX] !== 4 &&
-      playingField[newY][newX] !== 8 &&
       playingField[newY][newX] !== 9 &&
       playingField[newY][newX] !== 2 // Obstacle
     ) {
@@ -222,29 +207,6 @@ function movePlayer(dx, dy) {
       playingField[newY][newX] = 9; // Set the new position
       antiPlayer.x = newX;
       antiPlayer.y = newY;
-    }
-
-  }
-
-       // Move the anti-player objects
-  for (const vantiPlayer of vantiPlayerObjects) {
-    const newX = vantiPlayer.x + dx;
-    const newY = vantiPlayer.y - dy;
-
-    // Check for collisions with walls or obstacles, and only move the anti-player object if there's no collision
-    if (
-      newX >= 0 && newX < fieldWidth &&
-      newY >= 0 && newY < fieldHeight &&
-      playingField[newY][newX] !== 3 &&
-      playingField[newY][newX] !== 4 &&
-      playingField[newY][newX] !== 8 &&
-      playingField[newY][newX] !== 9 &&
-      playingField[newY][newX] !== 2 // Obstacle
-    ) {
-      playingField[vantiPlayer.y][vantiPlayer.x] = 0; // Clear the previous position
-      playingField[newY][newX] = 8; // Set the new position
-      vantiPlayer.x = newX;
-      vantiPlayer.y = newY;
     }
 
   }
@@ -309,30 +271,6 @@ function movePlayer(dx, dy) {
     }
   }
 
-   // Check for collision with vanti-player tile
-  for (const { x, y } of newPlayerObject) {
-    for (const { dx, dy } of collectableOffsets) {
-      const collectableX = x + dx;
-      const collectableY = y + dy;
-      if (
-        collectableX >= 0 && collectableX < fieldWidth &&
-        collectableY >= 0 && collectableY < fieldHeight &&
-        playingField[collectableY][collectableX] === 8
-      ) {
-          // Transform the player object
-            playerObject = playerObject.map(obj => ({ x: obj.x, y: obj.y, type: 8 }));
-    playerObject.forEach(({ x, y }) => {
-      playingField[y][x] = 8;
-      freezeInput(500);
-      setTimeout(() => {
-        loadLevel(window[currentLevelSet][currentLevel]);
-      }, 500);
-    });
-
-      }
-    }
-  }
-
 
   // Add neighboring pieces
   for (const { x, y } of newPlayerObject) {
@@ -375,17 +313,6 @@ function movePlayer(dx, dy) {
 
 if (playingField[antiPlayer.y][antiPlayer.x] === 1 ) {
         playingField[antiPlayer.y][antiPlayer.x] = 9;
-  freezeInput(500);
-   setTimeout(() => {
-     loadLevel(window[currentLevelSet][currentLevel]);
-   }, 500);
-}
-}
-
- for (const vantiPlayer of vantiPlayerObjects) {
-
-if (playingField[vantiPlayer.y][vantiPlayer.x] === 1 ) {
-        playingField[vantiPlayer.y][vantiPlayer.x] = 8;
   freezeInput(500);
    setTimeout(() => {
      loadLevel(window[currentLevelSet][currentLevel]);

@@ -132,6 +132,13 @@ a {
   border-style: solid;
 }
 
+.vantiplayer {
+  background-color: #430278;
+  border-color: #ffffff;
+  border-width: 1px;
+  border-style: solid;
+}
+
 .teleport_destination {
   background-color: blue;
   border-color: #ffffff;
