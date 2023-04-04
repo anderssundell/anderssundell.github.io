@@ -226,7 +226,7 @@ function movePlayer(dx, dy) {
 
   }
 
-       // Move the anti-player objects
+       // Move the vanti-player objects
   for (const vantiPlayer of vantiPlayerObjects) {
     const newX = vantiPlayer.x + dx;
     const newY = vantiPlayer.y - dy;
