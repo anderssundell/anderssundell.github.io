@@ -308,7 +308,8 @@ level17,
 level18,
 level19,
 level20,
-level21];
+level21,
+level22];
 
 window.originallevels = originallevels;
 
