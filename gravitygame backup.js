@@ -16,33 +16,6 @@ font.load().then(() => {
     console.error('Error loading font:', err);
 });
 
-
-const gasButton = document.createElement('button');
-gasButton.innerHTML = `
-  <svg width="50" height="50" viewBox="0 0 24 24">
-    <circle cx="12" cy="12" r="10" stroke="white" stroke-width="1" fill="none" opacity="0.5" />
-    <path d="M12 7l-4 4h3v4h2v-4h3z" fill="white" opacity="0.5" />
-  </svg>
-`;
-gasButton.style.position = 'absolute';
-gasButton.style.padding = '0';
-gasButton.style.border = 'none';
-gasButton.style.background = 'none';
-
-// Create the brake button with a down arrow in a circle
-const brakeButton = document.createElement('button');
-brakeButton.innerHTML = `
-  <svg width="50" height="50" viewBox="0 0 24 24">
-    <circle cx="12" cy="12" r="10" stroke="white" stroke-width="1" fill="none" opacity="0.5" />
-    <path d="M12 17l4-4h-3v-4h-2v4h-3z" fill="white" opacity="0.5" />
-  </svg>
-`;
-brakeButton.style.position = 'absolute';
-brakeButton.style.padding = '0';
-brakeButton.style.border = 'none';
-brakeButton.style.background = 'none';
-
-
 function drawTimer() {
     ctx.fillStyle = 'white';
         ctx.font = '24px Roboto'; // Change the font to 'Roboto'
@@ -658,46 +631,6 @@ document.addEventListener('keyup', (event) => {
         spaceship.turnSpeed = 0;
     }
 });
-document.body.appendChild(gasButton);
-document.body.appendChild(brakeButton);
-
-// Touch event for the gas button
-gasButton.addEventListener('touchstart', (event) => {
-  event.preventDefault();
-  spaceship.thrust = 50; // Adjust thrust value as needed
-});
-
-gasButton.addEventListener('touchend', (event) => {
-  event.preventDefault();
-  spaceship.thrust = 0;
-});
-
-// Touch event for the brake button
-brakeButton.addEventListener('touchstart', (event) => {
-  event.preventDefault();
-  spaceship.thrust = -20; // Adjust braking value as needed (negative for braking)
-});
-
-brakeButton.addEventListener('touchend', (event) => {
-  event.preventDefault();
-  spaceship.thrust = 0;
-});
-
-function resizeCanvas() {
-  leftstart = window.innerWidth/2 - 600 + 20;
-  bottomstart = window.innerHeight/2 -350 + 40;
-
-  // Position the gas button
-  gasButton.style.left = `${leftstart}px` ;
-  gasButton.style.bottom = `${bottomstart+60}px` ;
-
-  // Position the brake button
-  brakeButton.style.left = `${leftstart}px` ;
-  brakeButton.style.bottom = `${bottomstart}px` ;
-}
-
-window.addEventListener('resize', resizeCanvas);
-resizeCanvas();
 
 let lastTime = 0;
 requestAnimationFrame(gameLoop);
