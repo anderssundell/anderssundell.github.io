@@ -661,6 +661,21 @@ document.addEventListener('keyup', (event) => {
 document.body.appendChild(gasButton);
 document.body.appendChild(brakeButton);
 
+canvas.addEventListener('touchstart', (event) => {
+  event.preventDefault();
+
+  const touch = event.touches[0];
+  const targetX = touch.clientX - canvas.offsetLeft;
+  const targetY = touch.clientY - canvas.offsetTop;
+  const deltaX = targetX - spaceship.x;
+  const deltaY = targetY - spaceship.y;
+
+  // Calculate the angle to turn towards the touch point
+  const angle = Math.atan2(deltaY, deltaX);
+  spaceship.angle = angle;
+});
+
+
 // Touch event for the gas button
 gasButton.addEventListener('touchstart', (event) => {
   event.preventDefault();
