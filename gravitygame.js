@@ -658,8 +658,8 @@ document.addEventListener('keyup', (event) => {
         spaceship.turnSpeed = 0;
     }
 });
-document.body.appendChild(gasButton);
-document.body.appendChild(brakeButton);
+//document.body.appendChild(gasButton);
+//document.body.appendChild(brakeButton);
 
 canvas.addEventListener('touchstart', (event) => {
   event.preventDefault();
