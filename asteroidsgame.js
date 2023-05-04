@@ -304,6 +304,8 @@ document.addEventListener('keydown', (event) => {
 });
 
 
+
+
 function checkLaserAsteroidCollisions(laserBeams, asteroids) {
   for (let i = 0; i < laserBeams.length; i++) {
     const laser = laserBeams[i];
